@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Indie Flower', cursive;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.pointer {
+    cursor: pointer;
+}
