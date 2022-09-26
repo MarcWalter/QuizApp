@@ -26,4 +26,18 @@ body {
 
 .content {
     min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.card-img-small {
+    max-height: 20vh;
+    object-fit: contain;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
