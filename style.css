@@ -2,6 +2,8 @@ body {
     margin: 0;
     scroll-behavior: smooth;
     font-family: 'Indie Flower', cursive;
+    background-color: rgb(66, 66, 66) !important;
+    min-height: 100vh;
 }
 
 .text-center {
@@ -14,4 +16,14 @@ body {
 
 .pointer {
     cursor: pointer;
+}
+
+.center {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+}
+
+.content {
+    min-height: 100%;
 }
