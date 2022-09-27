@@ -46,7 +46,7 @@ let questions_planets = [
     }
 ];
 
-let questions_animals = [
+let questions_animal = [
     {
         "question": "Wie groß sind Känguru-Babys, wenn sie auf die Welt kommen?",
         "answer_1": "2 mm",
@@ -142,5 +142,5 @@ let questions_jesus = [
     }
 ];
 
-let questions = questions_animals;
+let questions = questions_animal;
 let currentQuestion = 0;

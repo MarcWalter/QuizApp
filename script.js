@@ -65,6 +65,14 @@ function hideOffcanvas() {
     document.getElementById('offcanvasRight').classList.remove('show');
 }
 
+function restartQuiz(selectedQuiz) {
+    questions = selectedQuiz;
+    score = 15;
+    currentQuestion = 0;
+    hideOffcanvas()
+    init();
+}
+
 //----------------------HTML code-------------------------------------------
 function returnHtmlCard() {
     let img = questions[currentQuestion]["picture"];
@@ -124,12 +132,12 @@ function returnHtmlScore() {
       <div class="col-md-8">
         <div class="card-body">
           <h2 class="card-title center">Score</h2>
-          <p class="score center">13 / 15</p>
+          <p class="score center">${score} / 15</p>
           <p class="card-text center"><small class="text-muted">Erreicht beim Tier-Quiz</small></p>
         </div>
         <div class="card-footer center flex-column">
-            <button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span>Neustart</button>
-            <button class="btn btn-secondary mt-2"><span class="glyphicon glyphicon-refresh"></span>Anderes Quiz wählen</button>
+            <button onclick="restartQuiz(questions)" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span>Neustart</button>
+            <button onclick="showOffcanvas()" class="btn btn-secondary mt-2"><span class="glyphicon glyphicon-refresh"></span>Anderes Quiz wählen</button>
         </div>
       </div>
     </div>
