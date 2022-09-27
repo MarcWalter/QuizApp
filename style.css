@@ -2,7 +2,7 @@ body {
     margin: 0;
     scroll-behavior: smooth;
     font-family: 'Indie Flower', cursive;
-    background-color: rgb(66, 66, 66) !important;
+    background-color: #6c757d !important;
     min-height: 100vh;
 }
 
@@ -26,8 +26,13 @@ body {
     display: none;
 }
 
+.pos-right {
+    position: absolute;
+    right: 24px;
+}
+
 .selection {
-   z-index: -1;
+    z-index: -1;
     color: #ad3e33;
 }
 
@@ -35,7 +40,7 @@ body {
     display: flex;
     justify-content: center !important;
     align-items: center;
-    }
+}
 
 .center-y {
     display: flex;
@@ -65,7 +70,7 @@ body {
 
 .answer:hover {
     background-color: rgba(0, 0, 0, 0.05);
-   }
+}
 
 .card-footer {
     display: flex;
@@ -75,10 +80,12 @@ body {
 
 .list-group-item {
     transition: all 100ms ease-in-out;
+    /* border-left: transparent 5px solid !important; */
+    padding-left: 11px !important;
 }
 
 .list-group-item:hover {
-    text-decoration: underline;
+    border-left: solid 5px #e9766c !important;
     color: #e9766c;
 }
 

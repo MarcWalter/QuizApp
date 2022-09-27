@@ -48,6 +48,14 @@ function returnButtonText() {
     }
 }
 
+function showOffcanvas() {
+    document.getElementById('offcanvasRight').classList.add('show');
+}
+
+function hideOffcanvas() {
+    document.getElementById('offcanvasRight').classList.remove('show');
+}
+
 //----------------------HTML code-------------------------------------------
 function returnHtmlCard() {
     let img = questions[currentQuestion]["picture"];

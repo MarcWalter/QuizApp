@@ -17,27 +17,55 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body onload="init()">
-    
-    <nav class="navbar navbar-dark bg-dark" style="z-index: 2;">     
+<body onload="">
+
+    <nav class="navbar navbar-dark bg-dark" style="z-index: 2;">
         <div class="container center">
             <a class="navbar-brand" href="#">
                 <img src="img/logo.png" alt="Quizapp" width="70">
             </a>
         </div>
+        <button onclick="showOffcanvas()" class="btn btn-secondary pos-right" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Wähle hier dein Quiz:</h5>
+                <button onclick="hideOffcanvas()" type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="list-inline" style="font-size: 5vw;">
+                    <li class="list-group-item pointer">Planeten</li>
+                    <li class="list-group-item pointer">Tiere</li>
+                    <li class="list-group-item pointer">Jesus</li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <div class="selection center-y content">
-        <ul class="list-inline" style="font-size: 5vw;">
-            <li class="list-group-item pointer">Planeten</li>
-            <li class="list-group-item pointer">Tiere</li>
-            <li class="list-group-item pointer">Jesus</li>
-        </ul>
-    </div>
-    
-    <div id="content" class="content center">
 
-        
+    <div class="selection center-y content">
+
+    </div>
+
+    <div id="content" class="content center">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
     </div>
 
 </body>
