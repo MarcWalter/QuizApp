@@ -99,7 +99,7 @@ let questions_jesus = [
         "answer_2": "Es ist besser mit leeren Händen zum Tempel zu kommen als gar nicht.",
         "answer_3": "Mir ist alle Macht im Himmel und auf Erden gegeben.",
         "answer_4": "Mein Gott, mein Gott, warum hast du mich verlassen?",
-        "right_answer": 
+        "right_answer": 2
     },
     {
         "question": "Welche Aussage stammt nicht von Jesus Christus gemäß der Bibel?",
@@ -107,7 +107,7 @@ let questions_jesus = [
         "answer_2": "Ich gehe noch ein Stück weiter um zu beten.",
         "answer_3": "Meine Worte vergehen nie.",
         "answer_4": "Was fragst du mich das? Geh zu den Priestern.",
-        "right_answer": 
+        "right_answer": 4
     },
     {
         "question": "Welche Aussage stammt nicht von Jesus Christus gemäß der Bibel?",
@@ -115,7 +115,7 @@ let questions_jesus = [
         "answer_2": "Nur Narren verachten Reichtum.",
         "answer_3": "Wer an den Sohn glaubt, hat ewiges Leben.",
         "answer_4": "Meine Nahrung ist, dass ich den Willen Gottes tue.",
-        "right_answer": 
+        "right_answer": 2
     },
     {
         "question": "Welche Aussage stammt nicht von Jesus Christus gemäß der Bibel?",
@@ -123,6 +123,6 @@ let questions_jesus = [
         "answer_2": "Gott hat seinen Sohn nicht in die Welt geschickt, um sie zu verurteilen, sondern um sie durch ihn zu retten.",
         "answer_3": "Ihr sucht mich nur, weil ihr satt geworden seid.",
         "answer_4": "An jenem letzten Tag werde ich ihn von den Toten auferwecken.",
-        "right_answer": 
+        "right_answer": 1
     }
 ];
