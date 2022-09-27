@@ -18,11 +18,19 @@ body {
     cursor: pointer;
 }
 
+.selection {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    z-index: 3;
+    color: #ad3e33;
+}
+
 .center {
     display: flex;
     justify-content: center !important;
     align-items: center;
-}
+    }
 
 .content {
     min-height: 100%;

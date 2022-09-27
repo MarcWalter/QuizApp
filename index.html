@@ -11,13 +11,24 @@
 
 
     <script src="script.js"></script>
+    <script src="questions.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <div class="selection">
+        <ul class="list-inline">
+            <li class="list-group-item">HTML</li>
+            <li class="list-group-item">CSS</li>
+            <li class="list-group-item">Java Script</li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-dark bg-dark" style="z-index: 2;">
+
+        
+
         <div class="container center">
             <a class="navbar-brand" href="#">
                 <img src="img/logo.png" alt="Quizapp" width="70">
@@ -26,58 +37,40 @@
     </nav>
 
     <div class="content center">
+
         <div class="card" style="width: 18rem;">
             <img src="img/question-mark-gd1ee0b53c_1920.png" class="card-img-top card-img-small" alt="...">
             <div class="card-middle flex">
-                <div>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="card-body">
-                        <h5 class="card-title mb-3">Frage</h5>
 
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                Antwort
-                            </div>
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Frage</h5>
+
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            Antwort
                         </div>
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                Antwort
-                            </div>
+                    </div>
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            Antwort
                         </div>
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                Antwort
-                            </div>
+                    </div>
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            Antwort
                         </div>
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                Antwort
-                            </div>
+                    </div>
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            Antwort
                         </div>
                     </div>
                 </div>
 
-
-
             </div>
             <div class="card-footer">
                 <span><b>1</b> von <b>10</b></span>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">Nächste Frage</a>
             </div>
         </div>
     </div>
