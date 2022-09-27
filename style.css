@@ -19,10 +19,7 @@ body {
 }
 
 .selection {
-    position: absolute;
-    top: 0;
-    left: 5px;
-    z-index: 3;
+   z-index: -1;
     color: #ad3e33;
 }
 
@@ -31,6 +28,12 @@ body {
     justify-content: center !important;
     align-items: center;
     }
+
+.center-y {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 
 .content {
     min-height: 100%;
@@ -65,4 +68,8 @@ body {
 .list-group-item:hover {
     text-decoration: underline;
     color: #e9766c;
+}
+
+.bg-success, .bg-danger {
+    color: white;
 }

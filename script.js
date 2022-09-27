@@ -3,8 +3,18 @@ function init() {
     content.innerHTML = returnHtmlCard();
 }
 
-function showQuestion() {
-    let question = questions[currentQuestion];
+function answer(answerNumber) {
+    let rightAnswerNumber = questions[currentQuestion]["right_answer"];
+    let idRightAnswer = `answer_${rightAnswerNumber}`;
+    let idAnswer = `answer_${answerNumber}`;
+    if (answerNumber == rightAnswerNumber) {
+        console.log('right');
+        document.getElementById(idRightAnswer).classList.add('bg-success');
+    } else {
+        console.log('false');
+        document.getElementById(idRightAnswer).classList.add('bg-success');
+        document.getElementById(idAnswer).classList.add('bg-danger');
+    }
 }
 
 //----------------------HTML code-------------------------------------------
@@ -23,22 +33,22 @@ function returnHtmlCard() {
                 <div class="card-body">
                     <h5 class="card-title mb-3">${question}</h5>
 
-                    <div class="card mt-2 pointer answer">
+                    <div id="answer_1" class="card mt-2 pointer answer" onclick="answer(1)">
                         <div class="card-body ">
                             ${answer_1}
                         </div>
                     </div>
-                    <div class="card mt-2 pointer answer">
+                    <div id="answer_2" class="card mt-2 pointer answer" onclick="answer(2)">
                         <div class="card-body">
                         ${answer_2}
                         </div>
                     </div>
-                    <div class="card mt-2 pointer answer">
+                    <div id="answer_3" class="card mt-2 pointer answer" onclick="answer(3)">
                         <div class="card-body">
                         ${answer_3}
                         </div>
                     </div>
-                    <div class="card mt-2 pointer answer">
+                    <div id="answer_4" class="card mt-2 pointer answer" onclick="answer(4)">
                         <div class="card-body">
                         ${answer_4}
                         </div>
