@@ -92,3 +92,9 @@ body {
 .bg-success, .bg-secondary {
     color: white;
 }
+
+.score {
+    color: #ad3e33;
+    font-weight: 700;
+    font-size: 42px;
+}

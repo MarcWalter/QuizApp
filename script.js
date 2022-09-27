@@ -3,7 +3,7 @@ let score = 15;
 function init() {
     const content = document.getElementById('content');
     content.innerHTML = returnHtmlCard();
-    }
+}
 
 function answer(answerNumber) {
     let rightAnswerNumber = questions[currentQuestion]["right_answer"];
@@ -13,7 +13,7 @@ function answer(answerNumber) {
         console.log('right');
         document.getElementById(idRightAnswer).classList.add('bg-success');
         document.getElementById('next-btn').disabled = false;
-        disableAllAnswers ();
+        disableAllAnswers();
     } else {
         console.log('false');
         document.getElementById(idAnswer).classList.add('bg-secondary');
@@ -24,20 +24,29 @@ function answer(answerNumber) {
     }
 }
 
-function disableAllAnswers () {
-        document.getElementById('answer_1').disabled = true;
-        document.getElementById('answer_2').disabled = true;
-        document.getElementById('answer_3').disabled = true;
-        document.getElementById('answer_4').disabled = true;
-        document.getElementById('answer_1').classList.remove('pointer', 'answer');
-        document.getElementById('answer_2').classList.remove('pointer', 'answer');
-        document.getElementById('answer_3').classList.remove('pointer', 'answer');
-        document.getElementById('answer_4').classList.remove('pointer', 'answer');
+function disableAllAnswers() {
+    document.getElementById('answer_1').disabled = true;
+    document.getElementById('answer_2').disabled = true;
+    document.getElementById('answer_3').disabled = true;
+    document.getElementById('answer_4').disabled = true;
+    document.getElementById('answer_1').classList.remove('pointer', 'answer');
+    document.getElementById('answer_2').classList.remove('pointer', 'answer');
+    document.getElementById('answer_3').classList.remove('pointer', 'answer');
+    document.getElementById('answer_4').classList.remove('pointer', 'answer');
 }
 
 function nextQuestion() {
-    currentQuestion++;
-    init();
+    if (currentQuestion >= questions.length - 1) {
+        showScore();
+    } else {
+        currentQuestion++;
+        init();
+    }
+}
+
+function showScore() {
+    let htmlScore = returnHtmlScore();
+    document.getElementById('content').innerHTML = htmlScore;
 }
 
 function returnButtonText() {
@@ -103,4 +112,28 @@ function returnHtmlCard() {
             </div>
         </div>
     `;
+}
+
+function returnHtmlScore() {
+    let html = `
+    <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4 center-y">
+        <img src="img/tropy.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title center">Score</h2>
+          <p class="score center">13 / 15</p>
+          <p class="card-text center"><small class="text-muted">Erreicht beim Tier-Quiz</small></p>
+        </div>
+        <div class="card-footer center flex-column">
+            <button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span>Neustart</button>
+            <button class="btn btn-secondary mt-2"><span class="glyphicon glyphicon-refresh"></span>Anderes Quiz wählen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    `;
+    return html
 }
