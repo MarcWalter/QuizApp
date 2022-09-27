@@ -40,6 +40,14 @@ function nextQuestion() {
     init();
 }
 
+function returnButtonText() {
+    if (currentQuestion >= questions.length - 1) {
+        return `Ergebnis`;
+    } else {
+        return `nächste Frage`;
+    }
+}
+
 //----------------------HTML code-------------------------------------------
 function returnHtmlCard() {
     let img = questions[currentQuestion]["picture"];
@@ -48,9 +56,8 @@ function returnHtmlCard() {
     let answer_2 = questions[currentQuestion]["answer_2"];
     let answer_3 = questions[currentQuestion]["answer_3"];
     let answer_4 = questions[currentQuestion]["answer_4"];
-    let questionNumber = currentQuestion + 1;
-        return `
-    <div class="card" style="width: 18rem;">
+    return `
+    <div class="card main-card" style="width: 18rem;">
             <img src="img/questions_img/${img}" class="card-img-top card-img-small" alt="...">
             <div class="card-middle flex">
 
@@ -83,8 +90,8 @@ function returnHtmlCard() {
 
             </div>
             <div class="card-footer">
-                <span><b>${questionNumber}</b> von <b>${questions.length}</b></span>
-                <button disabled id="next-btn" href="#" class="btn btn-primary pointer" onclick="nextQuestion()">Nächste Frage</button>
+                <span><b>${currentQuestion + 1}</b> von <b>${questions.length}</b></span>
+                <button disabled id="next-btn" href="#" class="btn btn-primary pointer" onclick="nextQuestion()">${returnButtonText()}</button>
             </div>
         </div>
     `;

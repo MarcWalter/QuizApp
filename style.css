@@ -50,9 +50,13 @@ body {
     top: 0;
 }
 
+.main-card {
+    width: 26rem !important;
+}
+
 .card-img-small {
     max-height: 20vh;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .answer {

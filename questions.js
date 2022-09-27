@@ -142,5 +142,5 @@ let questions_jesus = [
     }
 ];
 
-let questions = questions_planets;
+let questions = questions_animals;
 let currentQuestion = 0;
