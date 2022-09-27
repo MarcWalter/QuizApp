@@ -141,3 +141,6 @@ let questions_jesus = [
         "picture": "cross.jpg"
     }
 ];
+
+let questions = questions_planets;
+let currentQuestion = 0;

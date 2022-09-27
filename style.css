@@ -44,8 +44,25 @@ body {
     object-fit: contain;
 }
 
+.answer {
+    transition: all 100ms ease-in-out;
+}
+
+.answer:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+   }
+
 .card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.list-group-item {
+    transition: all 100ms ease-in-out;
+}
+
+.list-group-item:hover {
+    text-decoration: underline;
+    color: #e9766c;
 }
