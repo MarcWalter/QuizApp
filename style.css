@@ -82,6 +82,7 @@ body {
     transition: all 100ms ease-in-out;
     /* border-left: transparent 5px solid !important; */
     padding-left: 11px !important;
+    font-size: 40px;
 }
 
 .list-group-item:hover {

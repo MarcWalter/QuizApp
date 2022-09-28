@@ -3,6 +3,7 @@ let score = 15;
 function init() {
     const content = document.getElementById('content');
     content.innerHTML = returnHtmlCard();
+    updateProgressBar();
 }
 
 function answer(answerNumber) {
@@ -14,14 +15,21 @@ function answer(answerNumber) {
         document.getElementById(idRightAnswer).classList.add('bg-success');
         document.getElementById('next-btn').disabled = false;
         disableAllAnswers();
+        document.getElementById('next-try').innerHTML = 'richtige Antwort';
+        updateProgressBar('answered');
     } else {
         console.log('false');
         document.getElementById(idAnswer).classList.add('bg-secondary');
-        score -= 1
-        console.log(score);
-        document.getElementById(idAnswer).disabled = true;
-        document.getElementById(idAnswer).classList.remove('pointer');
+        score--;
+        console.log('Score', score);
+        document.getElementById('next-try').innerHTML = 'Versuchs nochmal';
+        disableWrongAnswer(idAnswer);
     }
+}
+
+function disableWrongAnswer(idAnswer) {
+    document.getElementById(idAnswer).disabled = true;
+    document.getElementById(idAnswer).classList.remove('pointer');
 }
 
 function disableAllAnswers() {
@@ -49,6 +57,27 @@ function showScore() {
     document.getElementById('content').innerHTML = htmlScore;
 }
 
+function updateProgressBar(answerStatus) {
+    let nextQuestion = 0;
+    if (answerStatus == 'answered') {
+        nextQuestion = 1;
+    } else {
+        nextQuestion = 0;
+    }
+    
+    let progressBar = document.getElementById('progress-bar');
+    let progress = Math.round((currentQuestion + nextQuestion) / questions.length * 100);
+
+    if (progress > 0) {
+        progressBar.style = `width: ${progress}%`;
+        progressBar.innerHTML = `${progress} %`;
+    } else {
+        progressBar.style = `width: 0%`;
+        progressBar.innerHTML = ``;
+    }
+    
+}
+
 function returnButtonText() {
     if (currentQuestion >= questions.length - 1) {
         return `Ergebnis`;
@@ -73,6 +102,21 @@ function restartQuiz(selectedQuiz) {
     init();
 }
 
+function returnQuizName() {
+    if (questions == questions_planets) {
+        return 'Planeten-';
+    }
+    if (questions == questions_animal) {
+        return 'Tier-';
+    }
+    if (questions == questions_jesus) {
+        return 'Jesus-';
+    }
+    else {
+        return '';
+    }
+}
+
 //----------------------HTML code-------------------------------------------
 function returnHtmlCard() {
     let img = questions[currentQuestion]["picture"];
@@ -84,12 +128,16 @@ function returnHtmlCard() {
     return `
     <div class="card main-card" style="width: 18rem;">
             <img src="img/questions_img/${img}" class="card-img-top card-img-small" alt="...">
+            <div class="progress">
+                <div id="progress-bar" class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
             <div class="card-middle flex">
 
                 <div class="card-body">
                     <h5 class="card-title mb-3">
                         ${question}
                     </h5>
+                    <p id="next-try" class="text-danger"></p>
 
                     <button id="answer_1" class="card mt-2 pointer answer button-answer" onclick="answer(1)">
                         <div class="card-body ">
@@ -133,7 +181,7 @@ function returnHtmlScore() {
         <div class="card-body">
           <h2 class="card-title center">Score</h2>
           <p class="score center">${score} / 15</p>
-          <p class="card-text center"><small class="text-muted">Erreicht beim Tier-Quiz</small></p>
+          <p class="card-text center"><small class="text-muted">Erreicht beim ${returnQuizName()}Quiz</small></p>
         </div>
         <div class="card-footer center flex-column">
             <button onclick="restartQuiz(questions)" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span>Neustart</button>

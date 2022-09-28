@@ -75,7 +75,7 @@ let questions_animal = [
         "picture": "aardvark.jpg"
     },
     {
-        "question": "Wie alt können Schildkröten werden",
+        "question": "Wie alt können Schildkröten werden?",
         "answer_1": "100 Jahre",
         "answer_2": "150 Jahre",
         "answer_3": "200 Jahre",
@@ -142,5 +142,5 @@ let questions_jesus = [
     }
 ];
 
-let questions = questions_animal;
+let questions = questions_planets;
 let currentQuestion = 0;
