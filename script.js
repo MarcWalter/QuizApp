@@ -8,23 +8,36 @@ function init() {
 
 function answer(answerNumber) {
     let rightAnswerNumber = questions[currentQuestion]["right_answer"];
-    let idRightAnswer = `answer_${rightAnswerNumber}`;
     let idAnswer = `answer_${answerNumber}`;
-    if (answerNumber == rightAnswerNumber) {
-        console.log('right');
-        document.getElementById(idRightAnswer).classList.add('bg-success');
-        document.getElementById('next-btn').disabled = false;
+    if (rightAnswer(answerNumber, rightAnswerNumber)) {
+        success(rightAnswerNumber);
         disableAllAnswers();
-        document.getElementById('next-try').innerHTML = 'richtige Antwort';
         updateProgressBar('answered');
     } else {
-        console.log('false');
-        document.getElementById(idAnswer).classList.add('bg-secondary');
-        score--;
-        console.log('Score', score);
-        document.getElementById('next-try').innerHTML = 'Versuchs nochmal';
+        fail(idAnswer);
         disableWrongAnswer(idAnswer);
     }
+}
+
+function rightAnswer(answerNumber, rightAnswerNumber) {
+    return answerNumber == rightAnswerNumber
+}
+
+function success(rightAnswerNumber) {
+    let idRightAnswer = `answer_${rightAnswerNumber}`;
+    console.log('right');
+    document.getElementById(idRightAnswer).classList.add('bg-success');
+    document.getElementById('next-btn').disabled = false;
+    document.getElementById('next-try').innerHTML = 'richtige Antwort';
+    playSuccessSound();
+}
+
+function fail(idAnswer) {
+    console.log('false');
+    document.getElementById(idAnswer).classList.add('bg-secondary');
+    score--;
+    console.log('Score', score);
+    document.getElementById('next-try').innerHTML = 'Versuchs nochmal';
 }
 
 function disableWrongAnswer(idAnswer) {
@@ -58,15 +71,10 @@ function showScore() {
 }
 
 function updateProgressBar(answerStatus) {
-    let nextQuestion = 0;
-    if (answerStatus == 'answered') {
-        nextQuestion = 1;
-    } else {
-        nextQuestion = 0;
-    }
-    
+    let questionIsAnswered = statusNumber(answerStatus);   
+
     let progressBar = document.getElementById('progress-bar');
-    let progress = Math.round((currentQuestion + nextQuestion) / questions.length * 100);
+    let progress = Math.round((currentQuestion + questionIsAnswered) / questions.length * 100);
 
     if (progress > 0) {
         progressBar.style = `width: ${progress}%`;
@@ -75,7 +83,14 @@ function updateProgressBar(answerStatus) {
         progressBar.style = `width: 0%`;
         progressBar.innerHTML = ``;
     }
-    
+}
+
+function statusNumber(answerStatus) {
+    if (answerStatus == 'answered') {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 function returnButtonText() {
@@ -117,6 +132,11 @@ function returnQuizName() {
     }
 }
 
+function playSuccessSound() {
+  let AUDIO_SUCCESS = new Audio('sound/success.mp3');
+  AUDIO_SUCCESS.play();
+}
+
 //----------------------HTML code-------------------------------------------
 function returnHtmlCard() {
     let img = questions[currentQuestion]["picture"];
@@ -126,7 +146,7 @@ function returnHtmlCard() {
     let answer_3 = questions[currentQuestion]["answer_3"];
     let answer_4 = questions[currentQuestion]["answer_4"];
     return `
-    <div class="card main-card" style="width: 18rem;">
+    <div class="card main-card">
             <img src="img/questions_img/${img}" class="card-img-top card-img-small" alt="...">
             <div class="progress">
                 <div id="progress-bar" class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
